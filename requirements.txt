@@ -1,0 +1,22 @@
+# Pacotes Principais
+kaggle==1.6.17
+pandas==2.1.4
+numpy==1.26.2
+sqlalchemy==2.0.23
+kagglehub==0.1.3
+tqdm==4.66.1
+scikit-learn==1.3.2
+seaborn==0.13.0
+matplotlib==3.8.2
+plotly==5.18.0
+scikit-learn== 1.5.2
+
+# Utilitários
+playsound==1.3.0
+python-dateutil==2.8.2
+datetime==4.7
+
+# Opcional (caso necessário)
+python-dotenv==1.0.0  # Para gerenciar variáveis de ambiente
+pygame==2.6.1
+tqdm==4.67.1
