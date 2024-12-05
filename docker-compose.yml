@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:9.6
+    container_name: wapostgresql
+    restart: unless-stopped
+    environment:
+      - POSTGRES_DB=wa_project
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - TZ=GMT
+    ports:
+      - 5434:5432
+    volumes:
+      - ./docker-compose/postgres:/var/lib/postgresql/data

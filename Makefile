@@ -1,8 +1,12 @@
 setup:
 	pip install -r requirements.txt
+
+	docker-compose up -d
+
+	alembic upgrade head
 part1:
-	# Insira o comando para executar a primeira parte do trabalho
+	python3 part1.py
 part2:
-	# Insira o comando para executar a segunda parte do trabalho
+	python3 part2.py
 part3:
-	# Insira o comando para executar a terceira parte do trabalho
+	python3 part3.py
