@@ -20,7 +20,7 @@ session = Session()
 
 class PopuleDatabase():
         
-    def configure_data_column(self, value):
+    def sanitize_data_column(self, value):
         try:
             if not value:
                 return 'NaN'
@@ -40,7 +40,7 @@ class PopuleDatabase():
                         reader = csv.DictReader(csvfile)
                         columns_valid = {col.name for col in Flight.__table__.columns}
                         data_filted = [
-                            {key: self.configure_data_column(value) for key, value in column_.items() if key in columns_valid}
+                            {key: self.sanitize_data_column(value) for key, value in column_.items() if key in columns_valid}
                             for column_ in reader
                         ]
                     session.bulk_insert_mappings(Flight, data_filted)

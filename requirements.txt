@@ -1,9 +1,7 @@
-
-kaggle
-kagglehub
-sqlalchemy
-alembic
-pandas
-csv
-progress
-decouple
+kaggle==1.6.17
+kagglehub==0.3.4
+sqlalchemy==2.0.36
+alembic==1.14.0
+pandas==2.2.3
+progress==1.6
+python-decouple==3.8

@@ -25,12 +25,13 @@ def upgrade() -> None:
     
     select 
 	item."OP_CARRIER",
-	sum(item."CARRIER_DELAY") as "CARRIER_DELAY", 
-	sum(item."WEATHER_DELAY") as "WEATHER_DELAY",
-	sum(item."NAS_DELAY") as "NAS_DELAY",
-	sum(item."SECURITY_DELAY") as "SECURITY_DELAY",
-	sum(item."LATE_AIRCRAFT_DELAY") as "LATE_AIRCRAFT_DELAY",
-	sum(item."AIR_TIME") as "AIR_TIME" 
+	sum(item."CARRIER_DELAY") as "TOTAL_CARRIER_DELAY", 
+	sum(item."WEATHER_DELAY") as "TOTAL_WEATHER_DELAY",
+	sum(item."NAS_DELAY") as "TOTAL_NAS_DELAY",
+	sum(item."SECURITY_DELAY") as "TOTAL_SECURITY_DELAY",
+	sum(item."LATE_AIRCRAFT_DELAY") as "TOTAL_LATE_AIRCRAFT_DELAY",
+	sum(item."AIR_TIME") as "TOTAL_AIR_TIME",
+    ROUND(AVG(item."CARRIER_DELAY" + item."WEATHER_DELAY" + item."NAS_DELAY" + item."SECURITY_DELAY" + item."LATE_AIRCRAFT_DELAY")::numeric, 2) AS "DELAY_AVERAGE"
 	from flight item 
 	where item."CARRIER_DELAY" !=  'NaN'
 	group by item."OP_CARRIER";
