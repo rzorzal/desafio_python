@@ -1,0 +1,9 @@
+
+kaggle
+kagglehub
+sqlalchemy
+alembic
+pandas
+csv
+progress
+decouple
