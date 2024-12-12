@@ -1,0 +1,22 @@
+services:
+  dcs-postgres:
+    image: postgres:15.3-alpine
+    container_name: dcs-postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+    ports:
+      - 5432:5432
+  
+  dcs-pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: dcs-pgadmin
+    restart: always
+    depends_on:
+      - dcs-postgres
+    environment:
+      PGADMIN_DEFAULT_EMAIL: postgres@local.lan
+      PGADMIN_DEFAULT_PASSWORD: postgres
+    ports:
+      - 8080:80
